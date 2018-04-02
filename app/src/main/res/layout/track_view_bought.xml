@@ -45,21 +45,35 @@
         android:layout_below="@id/artist_name"
         android:textSize="24sp"/>
 
-    <Button
-        android:id="@+id/button_buy_small"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/shape"
-        android:text="buy"
-        android:onClick="buyTrack"
-        android:padding="8dp"
-        android:textSize="30sp"
-        android:textColor="@android:color/white"
-        android:layout_weight="1"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40dp"
-        android:layout_centerHorizontal="true"
-        />
+        android:paddingBottom="32dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp"
+            android:src="@drawable/rewind_green"/>
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/play_green"/>
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/forward_green"/>
+
+    </LinearLayout>
+
 
 </RelativeLayout>
