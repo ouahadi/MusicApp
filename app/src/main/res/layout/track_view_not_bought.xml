@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#28274B">
+
+    <ImageView
+        android:id="@+id/album_image"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/stromae_racine_carre"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shadow_rect"
+        android:layout_margin="18dp"/>
+
+    <TextView
+        android:id="@+id/track_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="Track Name"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/album_image"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/artist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="Artist name"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/track_name"
+        android:textSize="28sp"/>
+
+    <TextView
+        android:id="@+id/album_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:text="Album name"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/artist_name"
+        android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/button_buy_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape"
+        android:text="buy"
+        android:onClick="buyTrack"
+        android:padding="4dp"
+        android:layout_margin="4dp"
+        android:textSize="12sp"
+        android:textColor="@android:color/white"
+        android:layout_weight="1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
