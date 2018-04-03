@@ -20,24 +20,26 @@ public class Track {
     // Drawable resource ID for album cover
     private int mAlbumCover;
 
+    //Is the track bought?
+    private boolean mBought;
+
     // Resource ID for the track
-    private int mTrackFile;
+
 
     // Tags by which the track might be searched, as in parts of lyrics, name of the track with typo etc
-    private String [] trackTags;
+
 
     /*
     * Create a new Track object.
     *
     * */
-    public SingleTrack(String vTrackName, String vArtistName, String vAlbumName, List<String> vTrackTags, int vAlbumCover, int vTrackFile)
+    public Track(String vTrackName, String vArtistName, String vAlbumName, int vAlbumCover, boolean vBought)
     {
         mTrackName = vTrackName;
         mArtistName = vArtistName;
         mAlbumName = vAlbumName;
-        trackTags = vTrackTags;
+        mBought = vBought;
         mAlbumCover = vAlbumCover;
-        mTrackFile = vTrackFile;
     }
 
     /**
@@ -71,16 +73,14 @@ public class Track {
     /**
      * Get the track music file resource ID
      */
-    public int getmTrackFile() {
-        return mTrackFile;
-    }
 
     /**
-     * Get track tags
+     * Figure if the track's been bought or not
      */
-    public String[] getTrackTags {
-        return trackTags[]
+    public boolean getmBought() {
+        return mBought;
     }
+
 
 
 }

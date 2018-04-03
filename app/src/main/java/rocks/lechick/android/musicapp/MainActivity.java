@@ -14,7 +14,45 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Create ArrayList of Java objects for Track
-        ArrayList<Tracks> tracks = new ArrayList<Tracks>();
-        tracks.add(new rocks.lechick.android.musicapp.Track("Papaoutai", "Stromae", "Racine Carrée", vTrackTags <"racine", "papaoutai", "stromae">, R.drawable.stromae_racine_carre));
+        ArrayList<rocks.lechick.android.musicapp.Track> tracks = new ArrayList<rocks.lechick.android.musicapp.Track>();
+        tracks.add(new rocks.lechick.android.musicapp.Track("Ta fête", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Papaoutai", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Bâtard", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Ave Cesaria", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Tous les mêmes", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Formidable", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Moules frites", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Carmen", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Humain à l'eau", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Quand c'est?", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Sommeil", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Merci", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("AVF", "Stromae ", "Racine Carrée", R.drawable.stromae_racine_carree, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("About a Girl", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Come As You Are", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Jesus Doesn't Want Me for a Sunbeam", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("The Man Who Sold the World", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Pennyroyal Tea", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Dumb", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Polly", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("On a Plain", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Something in the Way", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Plateau", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Oh, Me", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, false));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Lake of Fire", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("All Apologies", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, true));
+        tracks.add(new rocks.lechick.android.musicapp.Track("Where did you sleep last night", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, true));
+
+
+        // Create an {@link AndroidFlavorAdapter}, whose data source is a list of
+        // {@link AndroidFlavor}s. The adapter knows how to create list item views for each item
+        // in the list.
+        rocks.lechick.android.musicapp.TrackAdaptor trackAdaptor = new rocks.lechick.android.musicapp.TrackAdaptor(this, tracks);
+
+        // Get a reference to the ListView, and attach the adapter to the listView.
+        ListView listView = (ListView) findViewById(R.id.listView_tracks);
+        listView.setAdapter(trackAdaptor);
+
+
     }
 }
