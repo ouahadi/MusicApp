@@ -36,7 +36,6 @@ public class TrackAdaptor extends ArrayAdapter<rocks.lechick.android.musicapp.Tr
                 listItemView = LayoutInflater.from(getContext()).inflate(
                         R.layout.track_list_view_bought, parent, false);
 
-
                 TextView nameTrackView = (TextView) listItemView.findViewById(R.id.track_name_list_view);
                 nameTrackView.setText(currentTrack.getmTrackName());
 
