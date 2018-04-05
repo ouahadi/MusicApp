@@ -31,7 +31,7 @@ public class TrackAdaptor extends ArrayAdapter<rocks.lechick.android.musicapp.Tr
 
             rocks.lechick.android.musicapp.Track currentTrack = getItem(position);
 
-            if (currentTrack.getmBought() == true && listItemView == null) {
+            if (currentTrack.getmBought() == true) {
 
                 listItemView = LayoutInflater.from(getContext()).inflate(
                         R.layout.track_list_view_bought, parent, false);
@@ -51,7 +51,7 @@ public class TrackAdaptor extends ArrayAdapter<rocks.lechick.android.musicapp.Tr
                 iconView.setImageResource(currentTrack.getmAlbumCover());
             }
 
-            if (currentTrack.getmBought() == false && listItemView == null){
+            else {
 
                 listItemView = LayoutInflater.from(getContext()).inflate(
                         R.layout.track_list_view_not_bought, parent, false);
