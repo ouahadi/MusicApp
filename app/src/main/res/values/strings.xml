@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MusicApp</string>
+    <string name="title_activity_track_view">TrackView</string>
+    <string name="title_activity_track_not_bought">TrackNotBoughtActivity</string>
 </resources>

@@ -1,8 +1,13 @@
 package rocks.lechick.android.musicapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,12 +52,28 @@ public class MainActivity extends AppCompatActivity {
         // Create an {@link AndroidFlavorAdapter}, whose data source is a list of
         // {@link AndroidFlavor}s. The adapter knows how to create list item views for each item
         // in the list.
-        rocks.lechick.android.musicapp.TrackAdaptor trackAdaptor = new rocks.lechick.android.musicapp.TrackAdaptor(this, tracks);
+        final rocks.lechick.android.musicapp.TrackAdaptor trackAdaptor = new rocks.lechick.android.musicapp.TrackAdaptor(this, tracks);
 
         // Get a reference to the ListView, and attach the adapter to the listView.
         ListView listView = (ListView) findViewById(R.id.listView_tracks);
         listView.setAdapter(trackAdaptor);
 
+        //set up onClick listener
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,int position, long id)
+            {
+                if (trackAdaptor.getItem(position).getmBought() == true){
+                    Intent trackView = new Intent(MainActivity.this, TrackBoughtView.class);
+                    startActivity(trackView);
+                }
+
+                if (trackAdaptor.getItem(position).getmBought() == false) {
+                    Intent trackBuy = new Intent(MainActivity.this, TrackNotBoughtActivity.class);
+                    startActivity(trackBuy);
+                }
+            }
+
+        });
 
     }
 }
