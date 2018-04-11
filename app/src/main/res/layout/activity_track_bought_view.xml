@@ -5,7 +5,7 @@
     android:background="#31137c">
 
     <ImageView
-        android:id="@+id/album_image"
+        android:id="@+id/album_cover"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:src="@drawable/stromae_racine_carree"
@@ -21,7 +21,7 @@
         android:textColor="@android:color/white"
         android:text="Track Name"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/album_image"
+        android:layout_below="@id/album_cover"
         android:textSize="30sp"/>
 
     <TextView

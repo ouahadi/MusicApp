@@ -21,7 +21,7 @@ public class Track {
     private int mAlbumCover;
 
     //Is the track bought?
-    private boolean mBought;
+    private boolean mBought = false;
 
     // Resource ID for the track
 

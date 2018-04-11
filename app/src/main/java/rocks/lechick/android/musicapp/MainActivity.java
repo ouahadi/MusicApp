@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import javax.annotation.Nullable;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -60,19 +62,39 @@ public class MainActivity extends AppCompatActivity {
 
         //set up onClick listener
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,int position, long id)
-            {
-                if (trackAdaptor.getItem(position).getmBought() == true){
+            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+
+                rocks.lechick.android.musicapp.Track selectedTrack = (trackAdaptor.getItem(position);
+                Log.v("Track bought", "Track bought status: "+ selectedTrack.getmBought());
+                Log.v("Track selected", "Track selected: "+ selectedTrack.getmTrackName());
+
+                if (selectedTrack.getmBought() == true) {
                     Intent trackView = new Intent(MainActivity.this, TrackBoughtView.class);
+                    Bundle trackInfo = new Bundle();
+                    trackInfo.putString("TrackName", trackAdaptor.getItem(position).getmTrackName());
+                    trackInfo.putString("ArtistName", trackAdaptor.getItem(position).getmArtistName());
+                    trackInfo.putString("AlbumName", trackAdaptor.getItem(position).getmAlbumName());
+                    trackInfo.putInt("AlbumCover", trackAdaptor.getItem(position).getmAlbumCover());
+                    trackInfo.putInt("Position", position);
+                    trackView.putExtras(trackInfo);
                     startActivity(trackView);
                 }
 
-                if (trackAdaptor.getItem(position).getmBought() == false) {
+                if (selectedTrack.getmBought() == false) {
                     Intent trackBuy = new Intent(MainActivity.this, TrackNotBoughtActivity.class);
+                    Bundle trackInfo = new Bundle();
+                    trackInfo.putString("TrackName", trackAdaptor.getItem(position).getmTrackName());
+                    trackInfo.putString("ArtistName", trackAdaptor.getItem(position).getmArtistName());
+                    trackInfo.putString("AlbumName", trackAdaptor.getItem(position).getmAlbumName());
+                    trackInfo.putInt("AlbumCover", trackAdaptor.getItem(position).getmAlbumCover());
+                    trackInfo.putInt("Position", position);
+                    trackBuy.putExtras(trackInfo);
                     startActivity(trackBuy);
+                    Log.v("Track Adaptor position", "position: " + selectedTrack.getmBought());
                 }
-            }
 
+                Log.v("Track Adaptor position", "position: " + trackAdaptor.getItem(position));
+            }
         });
 
     }
