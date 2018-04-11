@@ -29,48 +29,30 @@ public class TrackAdaptor extends ArrayAdapter<rocks.lechick.android.musicapp.Tr
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
 
-            rocks.lechick.android.musicapp.Track currentTrack = getItem(position);
+        rocks.lechick.android.musicapp.Track currentTrack = getItem(position);
 
-            if (currentTrack.getmBought() == true) {
+        if (currentTrack.getmBought() == true) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.track_list_view_bought, parent, false);
+        }
+        else {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.track_list_view_not_bought, parent, false);
+        }
+        
+        TextView nameTrackView = (TextView) listItemView.findViewById(R.id.track_name_list_view);
+        nameTrackView.setText(currentTrack.getmTrackName());
 
-                listItemView = LayoutInflater.from(getContext()).inflate(
-                        R.layout.track_list_view_bought, parent, false);
+        TextView nameArtistView = (TextView) listItemView.findViewById(R.id.artist_name_list_view);
+        nameArtistView.setText(currentTrack.getmArtistName());
 
-                TextView nameTrackView = (TextView) listItemView.findViewById(R.id.track_name_list_view);
-                nameTrackView.setText(currentTrack.getmTrackName());
+        TextView nameAlbumView = (TextView) listItemView.findViewById(R.id.album_name_list_view);
+        nameAlbumView.setText(currentTrack.getmAlbumName());
 
-                TextView nameArtistView = (TextView) listItemView.findViewById(R.id.artist_name_list_view);
-                nameArtistView.setText(currentTrack.getmArtistName());
-
-                TextView nameAlbumView = (TextView) listItemView.findViewById(R.id.album_name_list_view);
-                nameAlbumView.setText(currentTrack.getmAlbumName());
-
-                ImageView iconView = (ImageView) listItemView.findViewById(R.id.album_cover_list_view);
-                // Get the image resource ID from the current AndroidFlavor object and
-                // set the image to iconView
-                iconView.setImageResource(currentTrack.getmAlbumCover());
-            }
-
-            else {
-
-                listItemView = LayoutInflater.from(getContext()).inflate(
-                        R.layout.track_list_view_not_bought, parent, false);
-
-
-                TextView nameTrackView = (TextView) listItemView.findViewById(R.id.track_name_list_view);
-                nameTrackView.setText(currentTrack.getmTrackName());
-
-                TextView nameArtistView = (TextView) listItemView.findViewById(R.id.artist_name_list_view);
-                nameArtistView.setText(currentTrack.getmArtistName());
-
-                TextView nameAlbumView = (TextView) listItemView.findViewById(R.id.album_name_list_view);
-                nameAlbumView.setText(currentTrack.getmAlbumName());
-
-                ImageView iconView = (ImageView) listItemView.findViewById(R.id.album_cover_list_view);
-                // Get the image resource ID from the current AndroidFlavor object and
-                // set the image to iconView
-                iconView.setImageResource(currentTrack.getmAlbumCover());
-            }
+        ImageView iconView = (ImageView) listItemView.findViewById(R.id.album_cover_list_view);
+        // Get the image resource ID from the current AndroidFlavor object and
+        // set the image to iconView
+        iconView.setImageResource(currentTrack.getmAlbumCover());
 
         return listItemView;
 
