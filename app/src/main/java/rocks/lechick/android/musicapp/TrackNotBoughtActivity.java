@@ -35,20 +35,26 @@ public class TrackNotBoughtActivity extends AppCompatActivity {
 
         }
 
-    }
-    public void buyTrack() {
-        Intent intent1 = new Intent(TrackNotBoughtActivity.this, BuyActivity.class);
+        Button button = (Button) findViewById(R.id.button_buy);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        Intent intent = getIntent();
-        if (null != intent) {
-            Bundle trackInfo = new Bundle();
-            trackInfo.putString("TrackNameBuy", intent.getStringExtra("TrackName"));
-            trackInfo.putString("ArtistNameBuy", intent.getStringExtra("ArtistkName"));
-            trackInfo.putString("AlbumNameBuy", intent.getStringExtra("AlbumName"));
-            intent1.putExtras(trackInfo);
-        }
+                Intent intent1 = new Intent(TrackNotBoughtActivity.this, BuyActivity.class);
 
-        startActivity(intent1);
+                Intent intent = getIntent();
+                if (null != intent) {
+                    Bundle trackInfo = new Bundle();
+                    trackInfo.putString("TrackNameBuy", intent.getStringExtra("TrackName"));
+                    trackInfo.putString("ArtistNameBuy", intent.getStringExtra("ArtistkName"));
+                    trackInfo.putString("AlbumNameBuy", intent.getStringExtra("AlbumName"));
+                    intent1.putExtras(trackInfo);
+                }
+
+                startActivity(intent1);
+            }
+        });
+
     }
 }
 

@@ -56,7 +56,6 @@
         android:textSize="30sp"
         android:textColor="@android:color/white"
         android:layout_weight="1"
-        android:onClick="buyTrack"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40dp"
         android:layout_centerHorizontal="true"
