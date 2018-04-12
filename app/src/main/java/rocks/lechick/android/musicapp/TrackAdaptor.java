@@ -28,39 +28,40 @@ public class TrackAdaptor extends ArrayAdapter<rocks.lechick.android.musicapp.Tr
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Check if the existing view is being reused, otherwise inflate the view
+        // Because the views inflate in 2 ways I can't really check if the existing view
+        // is being reused, so I am inflating the view based on the track's status bought/not bought
         View listItemView = convertView;
 
             rocks.lechick.android.musicapp.Track currentTrack = getItem(position);
 
 
             if (currentTrack.getmBought() == true) {
-
+                //inflate the view from the xml file for bought tracks
                 listItemView = LayoutInflater.from(getContext()).inflate(
                         R.layout.track_list_view_bought, parent, false);
 
             }
 
             if (currentTrack.getmBought() == false) {
+                //inflate the view from the xml file for bought tracks
                 listItemView = LayoutInflater.from(getContext()).inflate(
                         R.layout.track_list_view_not_bought, parent, false);
             }
-
+                //initialise the view with the name of the track and fill it with info from the current track
                 TextView nameTrackView = (TextView) listItemView.findViewById(R.id.track_name_list_view);
                 nameTrackView.setText(currentTrack.getmTrackName());
 
+                //initialise the view with the name of the artist and fill it with info from the current track
                 TextView nameArtistView = (TextView) listItemView.findViewById(R.id.artist_name_list_view);
                 nameArtistView.setText(currentTrack.getmArtistName());
 
+                //initialise the view with the name of the album and fill it with info from the current track
                 TextView nameAlbumView = (TextView) listItemView.findViewById(R.id.album_name_list_view);
                 nameAlbumView.setText(currentTrack.getmAlbumName());
 
+                //initialise the view with the album cover and fill it with info from the current track
                 ImageView iconView = (ImageView) listItemView.findViewById(R.id.album_cover_list_view);
-                // Get the image resource ID from the current AndroidFlavor object and
-                // set the image to iconView
                 iconView.setImageResource(currentTrack.getmAlbumCover());
-
-
 
         return listItemView;
 

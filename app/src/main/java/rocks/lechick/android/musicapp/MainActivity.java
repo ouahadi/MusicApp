@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         tracks.add(new rocks.lechick.android.musicapp.Track("Where did you sleep last night", "Nirvana ", "Unplugged in New York", R.drawable.nirvana_mtv_unplugged_in_new_york, true));
 
 
-        // Create an {@link AndroidFlavorAdapter}, whose data source is a list of
-        // {@link AndroidFlavor}s. The adapter knows how to create list item views for each item
+        // Create an {@link Tracks}, whose data source is a list of
+        // {@link Tracks }s. The adapter knows how to create list item views for each item
         // in the list.
         final rocks.lechick.android.musicapp.TrackAdaptor trackAdaptor = new rocks.lechick.android.musicapp.TrackAdaptor(this, tracks);
 
@@ -60,16 +60,19 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.listView_tracks);
         listView.setAdapter(trackAdaptor);
 
+
         //set up onClick listener
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-
-                rocks.lechick.android.musicapp.Track selectedTrack = (trackAdaptor.getItem(position);
+                //identify track the user selected and display large track page depending on
+                // if the user had already bought it
+                Track selectedTrack = (Track) parent.getItemAtPosition(position);
                 Log.v("Track bought", "Track bought status: "+ selectedTrack.getmBought());
                 Log.v("Track selected", "Track selected: "+ selectedTrack.getmTrackName());
 
                 if (selectedTrack.getmBought() == true) {
                     Intent trackView = new Intent(MainActivity.this, TrackBoughtView.class);
+                    //pack the bundle with the info needed to open the large track view
                     Bundle trackInfo = new Bundle();
                     trackInfo.putString("TrackName", trackAdaptor.getItem(position).getmTrackName());
                     trackInfo.putString("ArtistName", trackAdaptor.getItem(position).getmArtistName());
@@ -82,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (selectedTrack.getmBought() == false) {
                     Intent trackBuy = new Intent(MainActivity.this, TrackNotBoughtActivity.class);
+                    //pack the bundle with the info needed to open the large track view
                     Bundle trackInfo = new Bundle();
                     trackInfo.putString("TrackName", trackAdaptor.getItem(position).getmTrackName());
                     trackInfo.putString("ArtistName", trackAdaptor.getItem(position).getmArtistName());

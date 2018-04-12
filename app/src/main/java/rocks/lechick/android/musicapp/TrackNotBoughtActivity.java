@@ -7,7 +7,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class TrackNotBoughtActivity extends AppCompatActivity {
@@ -34,5 +36,23 @@ public class TrackNotBoughtActivity extends AppCompatActivity {
         }
 
     }
+    public void buyTrack() {
+        Intent intent1 = new Intent(TrackNotBoughtActivity.this, BuyActivity.class);
 
+        Intent intent = getIntent();
+        if (null != intent) {
+            Bundle trackInfo = new Bundle();
+            trackInfo.putString("TrackNameBuy", intent.getStringExtra("TrackName"));
+            trackInfo.putString("ArtistNameBuy", intent.getStringExtra("ArtistkName"));
+            trackInfo.putString("AlbumNameBuy", intent.getStringExtra("AlbumName"));
+            intent1.putExtras(trackInfo);
+        }
+
+        startActivity(intent1);
+    }
 }
+
+
+
+
+
