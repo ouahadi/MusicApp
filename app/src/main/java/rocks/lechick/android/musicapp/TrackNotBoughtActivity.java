@@ -46,7 +46,7 @@ public class TrackNotBoughtActivity extends AppCompatActivity {
                 if (null != intent) {
                     Bundle trackInfo = new Bundle();
                     trackInfo.putString("TrackNameBuy", intent.getStringExtra("TrackName"));
-                    trackInfo.putString("ArtistNameBuy", intent.getStringExtra("ArtistkName"));
+                    trackInfo.putString("ArtistNameBuy", intent.getStringExtra("ArtistName"));
                     trackInfo.putString("AlbumNameBuy", intent.getStringExtra("AlbumName"));
                     intent1.putExtras(trackInfo);
                 }
