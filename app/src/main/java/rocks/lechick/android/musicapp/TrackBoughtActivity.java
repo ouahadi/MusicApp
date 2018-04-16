@@ -1,6 +1,9 @@
 package rocks.lechick.android.musicapp;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,7 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class TrackBoughtView extends AppCompatActivity {
+public class TrackBoughtActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +35,24 @@ public class TrackBoughtView extends AppCompatActivity {
             albumCoverView.setImageResource(intent.getIntExtra("AlbumCover", R.drawable.stromae));
 
         }
-    }
+
+
+        final ImageView play = (ImageView) findViewById(R.id.play);
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MediaPlayer mediaPlayer = MediaPlayer.create(TrackBoughtActivity.this, R.raw.la_brabanconne);
+                if (mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                    play.setImageResource(R.drawable.play_green);
+                }
+                if (!mediaPlayer.isPlaying()) {
+                    mediaPlayer.start();
+                    play.setImageResource(R.drawable.stop_green);
+                }
+            }
+        });
 }
+}
+
+

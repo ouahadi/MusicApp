@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TrackBoughtView"
+            android:name=".TrackBoughtActivity"
             android:label="@string/title_activity_track_view"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

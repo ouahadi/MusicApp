@@ -24,7 +24,7 @@ public class Track {
     private boolean mBought = false;
 
     // Resource ID for the track
-
+    private int mTrack;
 
     // Tags by which the track might be searched, as in parts of lyrics, name of the track with typo etc
 
@@ -33,13 +33,14 @@ public class Track {
     * Create a new Track object.
     *
     * */
-    public Track(String vTrackName, String vArtistName, String vAlbumName, int vAlbumCover, boolean vBought)
+    public Track(String vTrackName, String vArtistName, String vAlbumName, int vAlbumCover, boolean vBought, int vTrack)
     {
         mTrackName = vTrackName;
         mArtistName = vArtistName;
         mAlbumName = vAlbumName;
         mBought = vBought;
         mAlbumCover = vAlbumCover;
+        mTrack = vTrack;
     }
 
     /**
@@ -73,6 +74,9 @@ public class Track {
     /**
      * Get the track music file resource ID
      */
+    public int getmTrack() {
+        return mTrack;
+    }
 
     /**
      * Figure if the track's been bought or not
