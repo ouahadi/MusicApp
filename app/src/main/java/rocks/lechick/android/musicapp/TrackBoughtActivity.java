@@ -33,9 +33,7 @@ public class TrackBoughtActivity extends AppCompatActivity {
 
             ImageView albumCoverView = (ImageView) findViewById(R.id.album_cover);
             albumCoverView.setImageResource(intent.getIntExtra("AlbumCover", R.drawable.stromae));
-
         }
-
 
         final ImageView play = (ImageView) findViewById(R.id.play);
         final MediaPlayer mediaPlayer = MediaPlayer.create(TrackBoughtActivity.this, R.raw.la_brabanconne);
