@@ -38,17 +38,19 @@ public class TrackBoughtActivity extends AppCompatActivity {
 
 
         final ImageView play = (ImageView) findViewById(R.id.play);
+        final MediaPlayer mediaPlayer = MediaPlayer.create(TrackBoughtActivity.this, R.raw.la_brabanconne);
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(TrackBoughtActivity.this, R.raw.la_brabanconne);
                 if (mediaPlayer.isPlaying()) {
-                    mediaPlayer.stop();
+                    mediaPlayer.pause();
                     play.setImageResource(R.drawable.play_green);
+
                 }
-                if (!mediaPlayer.isPlaying()) {
+                else {
                     mediaPlayer.start();
-                    play.setImageResource(R.drawable.stop_green);
+                    play.setImageResource(R.drawable.pause_green);
+
                 }
             }
         });
