@@ -19,12 +19,27 @@
         <activity
             android:name=".TrackBoughtActivity"
             android:label="@string/title_activity_track_view"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName="rocks.lechick.android.musicapp.MainActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="rocks.lechick.android.musicapp.MainActivity" />
+            </activity>
         <activity
             android:name=".TrackNotBoughtActivity"
             android:label="@string/title_activity_track_not_bought"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".BuyActivity"></activity>
+            android:parentActivityName="rocks.lechick.android.musicapp.MainActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="rocks.lechick.android.musicapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".BuyActivity"
+            android:label="@string/title_activity_buy_track"
+            android:parentActivityName="rocks.lechick.android.musicapp.TrackNotBoughtActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="rocks.lechick.android.musicapp.TrackNotBoughtActivity" />
+        </activity>
     </application>
 
 </manifest>

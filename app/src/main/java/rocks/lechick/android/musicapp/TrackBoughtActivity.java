@@ -20,6 +20,7 @@ public class TrackBoughtActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_bought_view);
 
+
         Intent intent = getIntent();
         if (null != intent) {
             TextView nameTrackView = (TextView) findViewById(R.id.track_name);
